@@ -82,6 +82,35 @@ public:
         }
     }
 };
+class Streaming_pot : public Pot{
+    int layer;
+    public:
+    Streaming_pot() : Pot(0.0, 0, 0, 0), layer(0) {}
+    Streaming_pot(double p, int w, int h, int a, int l) : Pot(p, w, h, a), layer(l) {}
+    ~Streaming_pot() {}
+    void set_layer(int l) { layer = l; }
+    int get_layer() { return layer; }
+    void show_pot_info()
+    {
+        Pot::show_pot_info();
+        cout << "Layer: " << layer << endl;
+    }
+};
+class Noodle_pot : public Pot{
+    int compartment;
+    public:
+    Noodle_pot() : Pot(0.0, 0, 0, 0), compartment(0) {}
+    Noodle_pot(double p, int w, int h, int a, int c) : Pot(p, w, h, a), compartment(c) {}
+    ~Noodle_pot() {}
+    void set_compartment(int c) { compartment = c; }
+    int get_compartment() { return compartment; }
+    void show_pot_info()
+    {
+        Pot::show_pot_info();
+        cout << "Compartment: " << compartment << endl;
+    }
+        
+};
 int main()
 {
     Stove stove(E_Stove_Type::Gas);
